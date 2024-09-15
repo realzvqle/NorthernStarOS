@@ -4,11 +4,13 @@
 
 extern fb_info fb;
 
+
+
 void ramfb::setup_fb(){
     extern uint64_t stack_top;
     uint64_t heap_start = (uint64_t)&stack_top;
-    uint32_t fb_width = 800;
-    uint32_t fb_height = 600;
+    uint32_t fb_width = WIDTH;
+    uint32_t fb_height = HEIGHT;
     uint32_t fb_bpp = 4;
     uint32_t fb_stride = fb_bpp * fb_width;
 
@@ -21,6 +23,7 @@ void ramfb::setup_fb(){
         .fb_stride = fb_stride,
         .fb_size = fb_stride * fb_height,
     };
+
 }
 
 void ramfb::ramfb_setup(uart* uart, HAL* hal, fb_info* fb){
@@ -40,6 +43,7 @@ void ramfb::ramfb_setup(uart* uart, HAL* hal, fb_info* fb){
         .stride = bswap32(fb->fb_stride),
     };
     qemu_cfg_write_entry(&cfg, select, sizeof(cfg));
+    uart->print("RamFB Setup Successful");
 
 }
 
@@ -67,4 +71,8 @@ void ramfb::draw_rect(int x, int y, int height, int width, uint8_t color[3]){
             write_pixel(&fb, x + j, y + i, color);
         }
     }
+}
+
+void ramfb::clear_background(uint8_t color[3]){
+    draw_rect(5, 5, fb.fb_height, fb.fb_width, color);
 }
