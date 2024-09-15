@@ -9,24 +9,17 @@
 
 #include <stdint.h>
 #include <stddef.h>
+#include "mmio.hpp"
 
 
-
-class uart{
+class uart : public mmio {
     private:
-        unsigned char * uart = (unsigned char *)0x10000000; 
+        volatile unsigned char* uart_mem = (volatile unsigned char *)0x10000000; 
     public:
         void putchar(char c);
-        
         void print(const char * str);
+        char getchar();
 };
-
-
-
-
-
-
-
 
 
 

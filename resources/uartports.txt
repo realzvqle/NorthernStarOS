@@ -1,0 +1,54 @@
+Common MMIO Ports for QEMU virt RISC-V:
+UART (PL011 UART):
+
+Base Address: 0x10000000
+Registers:
+Data Register (UARTDR): 0x10000000 (R/W, used for transmitting and receiving data)
+Flag Register (UARTFR): 0x10000018 (used to check the status of the UART, e.g., if it's ready to send or has received data)
+Control Register (UARTCR): 0x10000030 (R/W, control the UART)
+Example Use:
+
+Writing to 0x10000000 sends a character to the UART.
+Reading from 0x10000000 receives a character from the UART.
+CLINT (Core Local Interruptor):
+
+Base Address: 0x2000000
+Registers:
+MSIP (Machine Software Interrupt): 0x2000000 + (core_id * 4) (used to trigger software interrupts for a specific core)
+MTIMECMP (Machine Timer Compare Register): 0x2004000 + (core_id * 8) (used to set the timer for machine-level timer interrupts)
+MTIME (Machine Timer Register): 0x200BFF8 (a free-running timer, used to measure time for setting interrupts or delays)
+Example Use:
+
+Writing to MTIMECMP sets the timer interrupt for a core.
+Reading MTIME gives the current time value.
+PLIC (Platform-Level Interrupt Controller):
+
+Base Address: 0x0C000000
+Registers:
+Priority Registers: 0x0C000000 (set the priority of each interrupt)
+Pending Interrupt Registers: 0x0C001000 (indicates which interrupts are pending)
+Enable Registers: 0x0C002000 + (core_id * 0x80) (enables specific interrupts for a core)
+Claim/Complete Register: 0x0C200004 + (core_id * 0x1000) (used to claim an interrupt and signal its completion)
+Example Use:
+
+Check Pending Interrupt Registers to see if an interrupt is pending.
+Claim and complete interrupts using the Claim/Complete Register.
+VirtIO MMIO Devices (for block, network, etc.):
+
+Base Address: 0x10001000 (block device example, others vary based on the device type and configuration)
+Registers:
+Device Features: 0x10001000 + 0x000 (read-only, features supported by the device)
+Driver Features: 0x10001000 + 0x004 (write-only, features used by the driver)
+Queue Selector: 0x10001000 + 0x030 (select which VirtIO queue to use)
+Queue Notify: 0x10001000 + 0x050 (notify the device that there is data in the queue)
+Example Use:
+
+Interact with VirtIO devices like block storage, networking, etc., by reading/writing to the appropriate MMIO registers.
+GPIO (if available):
+
+Base Address: Typically not enabled by default on the virt machine in QEMU but could be emulated in custom configurations.
+MMIO addresses are platform-dependent.
+DRAM (Main Memory):
+
+Base Address: 0x80000000 (This is where the main system RAM begins)
+This is not an MMIO region but where the system memory (RAM) is mapped.
