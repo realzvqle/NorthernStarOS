@@ -1,5 +1,5 @@
 SRC_DIR = src
-OBJ_DIR = ../obj
+OBJ_DIR = obj
 
 SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp)
 
@@ -16,3 +16,5 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 
 clean:
 	rm -rf $(OBJ_DIR)
+	rm -rf kernel/bin
+

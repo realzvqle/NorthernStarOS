@@ -2,7 +2,7 @@
 
 
 
-char prevc;
+static char prevc;
 
 void uart::putchar(char c) {
     mmio_write(uart_mem, c);
@@ -18,7 +18,6 @@ void uart::print(const char * str) {
 }
 
 char uart::getchar(){
-    
     while(1){
         char c = mmio_read(uart_mem);
         if(prevc == c) continue;
