@@ -18,7 +18,6 @@ all:
 clean:
 	cd kernel && make clean
 	cd boot && make clean
-	rm -rf kernel/bin
 run:
 	make all
-	qemu-system-riscv64 -machine virt -bios none -kernel kernel/bin/nposkrnl.exe -device virtio-gpu -display gtk -serial mon:stdio 
+	qemu-system-riscv64 -machine virt -bios none -kernel kernel/bin/nposkrnl.exe -device ramfb -display gtk -serial mon:stdio 
