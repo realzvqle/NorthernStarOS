@@ -11,6 +11,7 @@
 class HAL {
     public:
         void halt_system();
+        void kernel_suicide(char* error);
 };
 
 

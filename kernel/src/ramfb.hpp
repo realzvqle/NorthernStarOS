@@ -10,11 +10,12 @@
 #include "hal.hpp"
 #include "mmio.hpp"
 #include "uart.hpp"
+#include <cstdint>
 
 
 
-#define WIDTH 800
-#define HEIGHT 600
+#define WIDTH 1600
+#define HEIGHT 900
 
 typedef struct _fb{
     uint64_t fb_addr;
@@ -35,6 +36,7 @@ class ramfb : public mmio {
         void ramfb_setup(uart* uart, HAL* hal, fb_info* fb);
         void write_pixel(fb_info* fb, uint16_t x, uint16_t y, uint8_t pixel[4]);
         void clear_background(uint8_t color[3]);
+        void RGB(uint8_t* color, uint8_t r, uint8_t g, uint8_t b);
 };
 
 

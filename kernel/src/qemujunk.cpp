@@ -23,6 +23,7 @@ uint64_t bswap64(uint64_t x) {
            ((x & 0x00000000000000FFULL) << 56);
 }
 
+// remaking mmios b i cba to change the main class =(
 static void mmio_write_bsw64(uint64_t addr, uint64_t val) {
     volatile uint64_t *mmio_w = (volatile uint64_t*)addr;
     *mmio_w = bswap64(val);

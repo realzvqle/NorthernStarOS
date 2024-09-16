@@ -4,10 +4,6 @@
 
 
 
-
-
-
-
 void text::draw_char(int x, int y, int size, char c, uint8_t color[3]){
     if (c < 32 || c > 126) {
         return;

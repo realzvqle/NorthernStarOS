@@ -1,6 +1,6 @@
 #include "ramfb.hpp"
 #include "qemujunk.h"
-
+#include <stdatomic.h>
 
 extern fb_info fb;
 
@@ -13,6 +13,8 @@ void ramfb::setup_fb(){
     uint32_t fb_height = HEIGHT;
     uint32_t fb_bpp = 4;
     uint32_t fb_stride = fb_bpp * fb_width;
+    
+
 
     fb = {
         .fb_addr = heap_start,
@@ -75,4 +77,10 @@ void ramfb::draw_rect(int x, int y, int height, int width, uint8_t color[3]){
 
 void ramfb::clear_background(uint8_t color[3]){
     draw_rect(5, 5, fb.fb_height, fb.fb_width, color);
+}
+
+void ramfb::RGB(uint8_t* color, uint8_t r, uint8_t g, uint8_t b){
+    color[0] = b;
+    color[1] = g;
+    color[2] = r;
 }
