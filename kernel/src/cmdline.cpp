@@ -11,7 +11,7 @@ static text text;
 
 
 
-void cmdline::print(char* status) {
+void cmdline::print(const char* status) {
     static bool init = false;
     if(!init){
         uint8_t color[3];

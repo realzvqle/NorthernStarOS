@@ -20,7 +20,7 @@ void text::draw_char(int x, int y, int size, char c, uint8_t color[3]){
     }
 }
 
-void text::draw_text(int x, int y, char* s, int size, uint8_t color[3]){
+void text::draw_text(int x, int y, const char* s, int size, uint8_t color[3]){
     int c;
     int current_x = x; 
     int current_y = y;

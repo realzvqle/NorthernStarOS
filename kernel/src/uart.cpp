@@ -55,7 +55,7 @@ char* uart::array_adder(size_t size) {
 
             continue;
         }
-        if (character == 'p') {
+        if (character == 'P') {
             array[index] = '\0';  
             break;
         }

@@ -14,7 +14,7 @@ extern "C" void kmain(){
     
     uart urt;
     urt.print("\n------------------------\nzivOS SHELL BUILD INDEV\n------------------------\n");
-    urt.print("Press 'P' to enter (working on getting enter to work)\n\n");
+    urt.print("Press 'Shift + P' to enter (working on getting enter to work)\n\n");
 
     HAL hal;
     ramfb ram;

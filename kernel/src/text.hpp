@@ -114,7 +114,7 @@ class text : public ramfb{
         
     public:
         void draw_char(int x, int y, int size, char c, uint8_t color[3]);
-        void draw_text(int x, int y, char* s, int size, uint8_t color[3]);
+        void draw_text(int x, int y, const char* s, int size, uint8_t color[3]);
         
 };
 

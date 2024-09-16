@@ -18,7 +18,7 @@ class cmdline : text{
         int i = 3;
         int j = 0;
     public:
-        void print(char* status);
+        void print(const char* status);
 };
 
 
