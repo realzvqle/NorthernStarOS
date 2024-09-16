@@ -13,7 +13,9 @@ fb_info fb;
 extern "C" void kmain(){
     
     uart urt;
-    urt.print("\n---------\nOS SHELL\n---------\n");
+    urt.print("\n------------------------\nzivOS SHELL BUILD INDEV\n------------------------\n");
+    urt.print("Press 'P' to enter (working on getting enter to work)\n\n");
+
     HAL hal;
     ramfb ram;
     cmdline cmdline;
@@ -22,14 +24,14 @@ extern "C" void kmain(){
     ram.ramfb_setup(&urt, &hal, &fb);
 
     memalloc mem;
-    hal.kernel_suicide("fuck you");
     uint8_t color[3];
     ram.RGB(color, 0, 255, 255);
-    text.draw_text(0, 0, "CONFIDENTIAL", 1, color);
+    text.draw_text(0, 0, "zivOS Build INDEV", 1, color);
     mem.heap_init();
 
     cmdline.print("hi!");
     
+    urt.print("\n\n");
 
     while(1){
         char* idk = urt.gets(512);

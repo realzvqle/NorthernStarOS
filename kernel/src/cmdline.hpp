@@ -9,9 +9,7 @@
 
 
 
-#include "uart.hpp"
 #include "text.hpp"
-#include "ramfb.hpp"
 
 
 
