@@ -29,7 +29,7 @@ void HAL::kernel_suicide(char* error){
     
     rmfb.clear_background(purple);
     text.draw_text(700, 600, ":(", 10, white);
-    text.draw_text(10, 10, "Nightpane has ran into an issue and has been shutdown to prevent damage", 1, white);
+    text.draw_text(10, 10, "zivOS has ran into an issue and has been shutdown to prevent damage", 1, white);
     text.draw_text(10, 20, "please contact zvqle with this error code", 1, white);
     text.draw_text(10, 60, error, 1, white);
 
