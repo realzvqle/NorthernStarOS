@@ -6,7 +6,7 @@
 
 
 
-#include "hal.hpp"
+#include "HAL/hal.hpp"
 
 class kernel : public HAL {
     public:

@@ -1,10 +1,10 @@
-#include "uart.hpp"
-#include "ramfb.hpp"
+#include "drivers/UART/uart.hpp"
+#include "drivers/ramfb/ramfb.hpp"
 #include "text.hpp"
-#include "cmdline.hpp"
-#include "kmalloc.hpp"
+#include "kterminal/terminal.hpp"
+#include "malloc/kmalloc.hpp"
 #include "kernel.hpp"
-
+#include "kstdlib.hpp"
 fb_info fb;
 text text;
 ramfb ram;
@@ -28,24 +28,25 @@ extern "C" void kmain(){
     urt.print("Press 'Shift + P' to enter (working on getting enter to work)\n\n");
 
     HAL hal;
-    cmdline cmdline;
+    terminal term;
     
     ram.setup_fb();
     ram.ramfb_setup(&urt, &hal, &fb);
 
     memalloc mem;
+    kstdlib stdlib;
     uint8_t color[3];
     ram.RGB(color, 0, 255, 255);
-    text.draw_text(0, 0, "NorthernStarOS Build INDEV", 1, color);
+    text.draw_text(0, 0, stdlib.os_version(), 1, color);
     mem.heap_init();
 
-    cmdline.print("hi!");
+    term.print("hi!");
     
     urt.print("\n\n");
 
     while(1){
         char* idk = urt.gets(512);
-        cmdline.print(idk);
+        term.print(idk);
         mem.free(idk);
     }
     

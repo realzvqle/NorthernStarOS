@@ -1,5 +1,5 @@
 
-#include "cmdline.hpp"
+#include "terminal.hpp"
 
 
 
@@ -11,7 +11,7 @@ extern text text;
 
 
 
-void cmdline::print(const char* status) {
+void terminal::print(const char* status) {
     static bool init = false;
     if(!init){
         uint8_t color[3];

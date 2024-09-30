@@ -1,5 +1,5 @@
-#ifndef CMDLINE_HPP_INCLUDED
-#define CMDLINE_HPP_INCLUDED
+#ifndef TERMINAL_HPP_INCLUDED
+#define TERMINAL_HPP_INCLUDED
 
 
 
@@ -9,11 +9,11 @@
 
 
 
-#include "text.hpp"
+#include "../text.hpp"
 
 
 
-class cmdline : text{
+class terminal : text{
     private:
         int i = 3;
         int j = 0;

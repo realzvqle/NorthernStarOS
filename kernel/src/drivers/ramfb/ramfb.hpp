@@ -7,9 +7,9 @@
 
 
 
-#include "hal.hpp"
-#include "mmio.hpp"
-#include "uart.hpp"
+#include "../../HAL/hal.hpp"
+#include "../../HAL/mmio.hpp"
+#include "../UART/uart.hpp"
 #include <cstdint>
 
 
