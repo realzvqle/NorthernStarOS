@@ -1,6 +1,6 @@
-# zivOS
-
-This is a risc-v operating system im working on, its a serial based one
+# NorthernStarOS
+![nightpane logo](resources/northernstarbranding.png "Logo")
+This is a risc-v operating system im working on
 
 
 # BUILD INSTRUCTIONS
