@@ -9,6 +9,7 @@ fb_info fb;
 text text;
 ramfb ram;
 
+
 void kernel::kernel_suicide(char* error){
     uint8_t white[3] = {255, 255, 255};
     uint8_t purple[3] = {255, 0, 255};   
@@ -27,7 +28,6 @@ extern "C" void kmain(){
     urt.print("Press 'Shift + P' to enter (working on getting enter to work)\n\n");
 
     HAL hal;
-    ramfb ram;
     cmdline cmdline;
     
     ram.setup_fb();
