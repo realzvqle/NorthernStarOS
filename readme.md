@@ -1,5 +1,5 @@
 # NorthernStarOS
-![nightpane logo](resources/northernstarbranding.png "Logo")
+![nightpane logo](resources/northernstarbrandinglight.png "Logo")
 This is a risc-v operating system im working on
 
 
