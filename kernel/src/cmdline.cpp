@@ -5,8 +5,8 @@
 
 
 extern fb_info fb;
-static ramfb ram;
-static text text;
+extern ramfb ram;
+extern text text;
 
 
 

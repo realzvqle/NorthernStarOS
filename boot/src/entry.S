@@ -12,13 +12,10 @@ start:
 	la gp, global_pointer
 .option pop
 	
-	/* Reset satp */
 	csrw satp, zero
 	
-	/* Setup stack */
 	la sp, stack_top
 	
-	/* Clear the BSS section */
 	la t5, bss_start
 	la t6, bss_end
 bss_clear:
